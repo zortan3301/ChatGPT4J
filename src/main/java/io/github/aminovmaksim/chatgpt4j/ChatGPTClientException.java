@@ -1,4 +1,4 @@
-package com.devian.chatgpt4j;
+package io.github.aminovmaksim.chatgpt4j;
 
 public class ChatGPTClientException extends RuntimeException {
 

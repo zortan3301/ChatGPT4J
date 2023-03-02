@@ -1,7 +1,7 @@
-package com.devian.chatgpt4j;
+package io.github.aminovmaksim.chatgpt4j;
 
-import com.devian.chatgpt4j.model.ChatRequest;
-import com.devian.chatgpt4j.model.ChatResponse;
+import io.github.aminovmaksim.chatgpt4j.model.ChatRequest;
+import io.github.aminovmaksim.chatgpt4j.model.ChatResponse;
 import org.junit.Ignore;
 import org.junit.Test;
 

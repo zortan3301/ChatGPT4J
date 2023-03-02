@@ -1,4 +1,4 @@
-package com.devian.chatgpt4j.model;
+package io.github.aminovmaksim.chatgpt4j.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

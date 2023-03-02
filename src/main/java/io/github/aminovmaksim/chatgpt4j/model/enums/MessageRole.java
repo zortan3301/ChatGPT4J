@@ -1,4 +1,4 @@
-package com.devian.chatgpt4j.model.enums;
+package io.github.aminovmaksim.chatgpt4j.model.enums;
 
 public enum MessageRole {
     USER("user"),

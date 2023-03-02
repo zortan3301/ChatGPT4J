@@ -1,6 +1,6 @@
-package com.devian.chatgpt4j.model;
+package io.github.aminovmaksim.chatgpt4j.model;
 
-import com.devian.chatgpt4j.model.enums.ModelType;
+import io.github.aminovmaksim.chatgpt4j.model.enums.ModelType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

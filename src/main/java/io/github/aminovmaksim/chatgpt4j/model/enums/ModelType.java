@@ -1,4 +1,4 @@
-package com.devian.chatgpt4j.model.enums;
+package io.github.aminovmaksim.chatgpt4j.model.enums;
 
 public enum ModelType {
     GPT_3_5_TURBO("gpt-3.5-turbo"),
