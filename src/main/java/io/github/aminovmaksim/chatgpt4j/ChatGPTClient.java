@@ -10,6 +10,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 
 import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 public class ChatGPTClient {
 
@@ -23,7 +24,11 @@ public class ChatGPTClient {
     private ChatGPTClient(ChatGPTClientBuilder builder) {
         this.apiKey = builder.apiKey;
 
-        this.webClient = new OkHttpClient().newBuilder().build();
+        this.webClient = new OkHttpClient()
+                .newBuilder()
+                .readTimeout(builder.webClientTimeout, TimeUnit.MILLISECONDS)
+                .build();
+
         this.objectMapper = new ObjectMapper()
                 .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     }
@@ -60,9 +65,21 @@ public class ChatGPTClient {
     public static class ChatGPTClientBuilder {
 
         private String apiKey;
+        private Long webClientTimeout = 60000L;
 
+        /**
+         * @param apiKey OpenAI api key
+         */
         public ChatGPTClientBuilder apiKey(String apiKey) {
             this.apiKey = apiKey;
+            return this;
+        }
+
+        /**
+         * @param timeout connection timeout in milliseconds, default = 60000
+         */
+        public ChatGPTClientBuilder requestTimeout(Long timeout) {
+            this.webClientTimeout = timeout;
             return this;
         }
 

@@ -6,7 +6,7 @@
 
     <groupId>io.github.aminovmaksim</groupId>
     <artifactId>chatgpt4j</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <name>ChatGPT4J</name>
     <description>OpenAI ChatGPT API Client</description>
 
@@ -54,6 +54,9 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <logback.version>1.3.5</logback.version>
+        <slf4j-api.version>2.0.6</slf4j-api.version>
     </properties>
 
     <dependencies>
@@ -86,6 +89,25 @@
             <artifactId>junit</artifactId>
             <version>4.13.2</version>
             <scope>test</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j-api.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>${logback.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
         </dependency>
 
     </dependencies>

@@ -13,10 +13,34 @@ import java.util.List;
 @AllArgsConstructor
 public class ChatResponse {
 
+    /**
+     * Identifier of the response
+     */
     private String id;
+
+    /**
+     * Type of request
+     */
     private String object;
+
+    /**
+     * Timestamp in UNIX format
+     */
     private Long created;
+
+    /**
+     * List of responses
+     */
     private List<Choice> choices;
+
+    /**
+     * Info about token usage for request
+     */
+    private Usage usage;
+
+    /**
+     * Error info
+     */
     private Error error;
 
     @Data

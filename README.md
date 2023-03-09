@@ -22,6 +22,7 @@ implementation 'io.github.aminovmaksim:chatgpt4j:1.0.0'
 ```java
 ChatGPTClient client = ChatGPTClient.builder()
         .apiKey("YOUR_KEY")
+        .requestTimeout(30000L)
         .build();
 ```
 You can get your api key [here](https://platform.openai.com/account/api-keys)
