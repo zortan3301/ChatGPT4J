@@ -9,12 +9,12 @@ ChatGPT Java SDK. Official OpenAI API.
 <dependency>
     <groupId>io.github.aminovmaksim</groupId>
     <artifactId>chatgpt4j</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
 </dependency>
 ```
 #### Gradle
 ```groovy
-implementation 'io.github.aminovmaksim:chatgpt4j:1.0.1'
+implementation 'io.github.aminovmaksim:chatgpt4j:1.0.2'
 ```
 ---
 ## How to use
