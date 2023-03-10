@@ -14,15 +14,15 @@ import java.util.concurrent.TimeUnit;
 
 public class ChatGPTClient {
 
-    private static final String OPEN_AI_BASE_URL = "https://api.openai.com/v1";
-
     private final String apiKey;
+    private final String baseUrl;
 
     private final OkHttpClient webClient;
     private final ObjectMapper objectMapper;
 
     private ChatGPTClient(ChatGPTClientBuilder builder) {
         this.apiKey = builder.apiKey;
+        this.baseUrl = builder.baseUrl;
 
         this.webClient = new OkHttpClient()
                 .newBuilder()
@@ -37,13 +37,17 @@ public class ChatGPTClient {
         return new ChatGPTClientBuilder();
     }
 
-    public ChatResponse sendChat(ChatRequest chatRequest) {
+    /**
+     * Send chat completion request
+     * @throws ChatGPTClientException if any error occurs
+     */
+    public ChatResponse sendChat(ChatRequest chatRequest) throws ChatGPTClientException {
         String authHeader = "Bearer " + apiKey;
 
         try {
             RequestBody body = RequestBody.create(objectMapper.writeValueAsBytes(chatRequest));
             Request request = new Request.Builder()
-                    .url(OPEN_AI_BASE_URL + "/chat/completions")
+                    .url(baseUrl + "/chat/completions")
                     .method("POST", body)
                     .addHeader("Authorization", authHeader)
                     .addHeader("Content-Type", "application/json")
@@ -66,6 +70,7 @@ public class ChatGPTClient {
 
         private String apiKey;
         private Long webClientTimeout = 60000L;
+        private String baseUrl = "https://api.openai.com/v1";
 
         /**
          * @param apiKey OpenAI api key
@@ -80,6 +85,14 @@ public class ChatGPTClient {
          */
         public ChatGPTClientBuilder requestTimeout(Long timeout) {
             this.webClientTimeout = timeout;
+            return this;
+        }
+
+        /**
+         * @param baseUrl default = <a href="https://api.openai.com/v1">https://api.openai.com/v1</a>
+         */
+        public ChatGPTClientBuilder baseUrl(String baseUrl) {
+            this.baseUrl = baseUrl;
             return this;
         }
 
