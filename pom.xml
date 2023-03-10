@@ -6,7 +6,7 @@
 
     <groupId>io.github.aminovmaksim</groupId>
     <artifactId>chatgpt4j</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <name>ChatGPT4J</name>
     <description>OpenAI ChatGPT API Client</description>
 
