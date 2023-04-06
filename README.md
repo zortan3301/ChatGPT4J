@@ -9,12 +9,12 @@ ChatGPT Java SDK. Official OpenAI API.
 <dependency>
     <groupId>io.github.aminovmaksim</groupId>
     <artifactId>chatgpt4j</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
 </dependency>
 ```
 #### Gradle
 ```groovy
-implementation 'io.github.aminovmaksim:chatgpt4j:1.0.2'
+implementation 'io.github.aminovmaksim:chatgpt4j:1.0.3'
 ```
 ---
 ## How to use
@@ -30,10 +30,17 @@ You can get your api key [here](https://platform.openai.com/account/api-keys)
 
 - Send a message
 ```java
-ChatResponse response = client.sendChat(new ChatRequest("Hello"));
+ChatRequest request = new ChatRequest("Write an essay about AI revolution");
+request.setModel(ModelType.GPT_3_5_TURBO.getName());
 
+ChatResponse response = client.sendChat(request);
 System.out.println(response.getChoices().get(0).getMessage().getContent());
 ```
+
+---
+### GPT-4
+
+Join waitlist [here](https://openai.com/waitlist/gpt-4-api)
 
 ---
 ## Disclaimers

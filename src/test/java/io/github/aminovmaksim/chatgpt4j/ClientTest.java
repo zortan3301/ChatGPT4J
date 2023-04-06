@@ -2,6 +2,7 @@ package io.github.aminovmaksim.chatgpt4j;
 
 import io.github.aminovmaksim.chatgpt4j.model.ChatRequest;
 import io.github.aminovmaksim.chatgpt4j.model.ChatResponse;
+import io.github.aminovmaksim.chatgpt4j.model.enums.ModelType;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -22,7 +23,10 @@ public class ClientTest {
 
         logger.info("Start request");
 
-        ChatResponse response = client.sendChat(new ChatRequest("Write an essay about AI revolution"));
+        ChatRequest request = new ChatRequest("Write an essay about AI revolution");
+        request.setModel(ModelType.GPT_3_5_TURBO.getName());
+
+        ChatResponse response = client.sendChat(request);
 
         logger.info(response.getChoices().get(0).getMessage().getContent());
     }
